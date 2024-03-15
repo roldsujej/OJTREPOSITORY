@@ -1,0 +1,65 @@
+﻿@model pcg.Models.Login
+@{
+    ViewData["Title"] = "User Login";
+}
+
+<head>
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+</head>
+
+<div class="row justify-content-end align-items-end p-4" style="margin-bottom: 90px;">
+    <!-- Increased margin-bottom -->
+    <div class="col-md-6" style="margin-bottom: 100px;">
+        <!-- Added margin-bottom style -->
+        <div class="card p-3 glowing-border" style="margin-left: 100px;">
+            
+            <!-- Adjusted margin-left -->
+            <div class="card-header bg-dark text-light blue">
+                <h3 class="text-center">Login</h3>
+            </div>
+            <div class="card-body bg-light-yellow">
+                <form asp-action="Login" class="glowing-border p-3">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Username" class="control-label">Username</label>
+                        <input asp-for="Username" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password" class="control-label">Password</label>
+                        <input asp-for="Password" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-block btn-dark">Login</button>
+                    </div>
+                </form>
+                <div class="form-group text-center">
+                    <p>Don't have an account yet? <a asp-action="Register" style="color:black; text-decoration:underline">Register here!</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    /* Glowing border effect */
+    .glowing-border {
+        border: 2px solid rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        box-shadow: 0 0 10px #D1D1D1;
+    }
+
+    /* Background image for the card */
+    .card {
+        background-color: rgba(255, 255, 255, 0.8); /* Add transparency to the card */
+    }
+</style>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
